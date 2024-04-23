@@ -21,8 +21,7 @@ git clone https://github.com/benishhh/json-validator-remitly-task
 
 2. Navigate to the project directory and run the tests:
 
-```angular2html
-cd json-validator-remitly-task
+```
 cd remitlytask
 ```
 ```
@@ -74,8 +73,7 @@ git clone https://github.com/benishhh/json-validator-remitly-task
 ```
 
 2. Przejście do katalogu projektu i uruchomienie testów:
-```angular2html
-cd json-validator-remitly-task
+```
 cd remitlytask
 ```
 ```
