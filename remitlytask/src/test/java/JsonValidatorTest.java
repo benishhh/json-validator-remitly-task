@@ -19,13 +19,17 @@ public class JsonValidatorTest {
     @Test
     void testResourceWithAsterisk() throws Exception {
         String filePath = basePath + "jsonWithAsterisk.json";
-        assertFalse(validator.validateResource(filePath));
+        boolean result = validator.validateResource(filePath);
+        assertFalse(result, "The resource contains an asterisk, should return false.");
+        System.out.println("testResourceWithAsterisk passed. Expected false, got " + result);
     }
 
     @Test
     void testResourceWithValidValue() throws Exception {
         String filePath = basePath + "jsonWithValidValue.json";
-        assertTrue(validator.validateResource(filePath));
+        boolean result = validator.validateResource(filePath);
+        assertTrue(result, "The resource does not contain an asterisk, should return true.");
+        System.out.println("testResourceWithValidValue passed. Expected true, got " + result);
     }
 
     @Test
@@ -33,7 +37,8 @@ public class JsonValidatorTest {
         String filePath = basePath + "jsonMissingResource.json";
         assertThrows(IOException.class, () -> {
             validator.validateResource(filePath);
-        });
+        }, "Missing 'Resource' field should throw IOException.");
+        System.out.println("testMissingResourceField passed. Expected IOException.");
     }
 
     @Test
@@ -41,6 +46,7 @@ public class JsonValidatorTest {
         String filePath = basePath + "invalidJsonFormat.json";
         assertThrows(IOException.class, () -> {
             validator.validateResource(filePath);
-        });
+        }, "Invalid JSON format should throw IOException.");
+        System.out.println("testInvalidJsonFormat passed. Expected IOException.");
     }
 }
